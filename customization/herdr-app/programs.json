@@ -1,0 +1,30 @@
+{
+  "programs": {
+    "devin": {
+      "name": "Devin",
+      "icon": "my-icons/devin.svg",
+      "run": [
+        "devin"
+      ],
+      "match": [
+        "devin-cli"
+      ],
+      "tint": false,
+      "tile": "#1c1d21",
+      "color": "#ffffff"
+    },
+    "muse": {
+      "name": "Muse",
+      "icon": "my-icons/muse.svg",
+      "run": [
+        "muse"
+      ],
+      "match": [
+        "muse"
+      ],
+      "tint": false,
+      "tile": "#1c1d21",
+      "color": "#ffffff"
+    }
+  }
+}
