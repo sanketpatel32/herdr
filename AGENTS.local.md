@@ -52,3 +52,11 @@ The same workflow is injected into the global configs of devin, codex, opencode.
 - muse added to herdr-app launcher (programs.json + my-icons/muse.svg);
   detection manifest already existed in core. `worker` template = muse ember.
 - Parent receives tagged `<hc from="...">` notes; children die with parent.
+
+## Status-bar resource meter (2026-11-26)
+
+`~/.config/herdr-app/mods/workspace-status/` now renders `RAM x GB · CPU y%`
+for the whole herdr tree (app + server + terminals + agents + their commands)
+in the status bar. `metrics.ps1` does the two-sample CIM walk every 4s;
+the mod pauses when the window is hidden and keeps the last good sample on
+error. Windows-only, local machine only. Repo copy: `customization/herdr-app/mods/workspace-status/`.

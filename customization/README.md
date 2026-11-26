@@ -14,6 +14,13 @@ provider/model, read and steer them, get tagged report-backs, clean up.
 | `herdr-app/programs.json` | Launcher entries: devin, muse | `~/.config/herdr-app/programs.json` |
 | `herdr-app/my-icons/*.svg` | Agent icons (lobehub set) | `~/.config/herdr-app/my-icons/` |
 | `permissions/*-snippet.json` | hc allow rules per provider | merge into each provider's own settings |
+| `herdr-app/mods/workspace-status/` | status-bar resource meter (RAM + CPU of the whole herdr tree: app, server, terminals, agents, agents' commands) | `~/.config/herdr-app/mods/workspace-status/` |
+
+The meter samples all processes twice ~1s apart every 4s (`metrics.ps1`), walks
+the trees rooted at herdr-app.exe / herdr-core.exe, and renders RAM + CPU% of
+total machine capacity in the status bar, with a process-count tooltip.
+Windows-only; pauses when the window is hidden. Local machine only — remote
+spaces are not yet broken out.
 
 ## Approval recipes (verified live 2026-11-26, Windows)
 
