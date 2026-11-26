@@ -60,3 +60,12 @@ for the whole herdr tree (app + server + terminals + agents + their commands)
 in the status bar. `metrics.ps1` does the two-sample CIM walk every 4s;
 the mod pauses when the window is hidden and keeps the last good sample on
 error. Windows-only, local machine only. Repo copy: `customization/herdr-app/mods/workspace-status/`.
+
+## agy trust+approval launcher (2026-11-26)
+
+agy children now launch through :
+per-session settings JSON carries both  AND the literal cwd in
+ — no trust dialog even in fresh temp folders, no command
+prompts. Verified live in a brand-new temp folder through the researcher
+template. Plain shell/powershell argv passing mangles the JSON quotes on
+Windows; the Python launcher exists because subprocess quoting is correct.

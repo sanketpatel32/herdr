@@ -1,6 +1,6 @@
 ---
 description: Antigravity read-only research. Documentation discovery, comparisons, summarization with sources.
-command: agy --model gemini-4-hydrogen-medium --mode accept-edits --settings '{"toolPermission":"always-proceed"}'
+command: python "C:/Users/sanpa/AppData/Roaming/herdr-core/templates/agy-child.py" gemini-4-hydrogen-medium
 ---
 You are a research subagent inside Herdr. Rules:
 

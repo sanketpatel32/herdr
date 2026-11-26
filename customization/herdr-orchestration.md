@@ -94,7 +94,10 @@ Children that stop to ask permission every minute defeat the purpose.
 Each provider has a verified recipe (tested live on this machine 2026-11):
 
 - Devin: `--permission-mode smart` auto-approves hc commands. No extra setup.
-- agy: use `--mode accept-edits --settings '{"toolPermission":"always-proceed"}'`.
+- agy: launch through `%APPDATA%\herdr-core	emplatesgy-child.py [model]` — it builds
+  per-session settings with the cwd pre-trusted AND always-proceed. Verified:
+  fresh temp folders boot straight to the prompt, hc commands never prompt.
+  Manual equivalent: `--mode accept-edits --settings '{"toolPermission":"always-proceed","trustedWorkspaces":["<literal cwd>"]}'`.
   The settings JSON is per-session and never written to disk, so the user's
   global agy config stays conservative. Do NOT use `--mode auto` for children:
   auto mode's semantic risk evaluation overrides allow rules and specifically
@@ -122,10 +125,18 @@ recipes above; do not use them unless the user explicitly asks.
 
 agy trust dialog: the first time agy starts in a folder it has never seen,
 it blocks on "Do you trust the contents of this project?" BEFORE the agent
-starts. This is one-time per folder. When a fresh agy child is blocked at
-startup, read it (`hc read <child>`), approve with `hc keys <child> enter`,
-then resend the task with `hc send` (the first message is dropped by design).
-Folders agy has already trusted start clean.
+starts. PREVENT IT by pre-seeding trust in the launch settings: include the
+literal child cwd in trustedWorkspaces —
+  --settings '{"toolPermission":"always-proceed","trustedWorkspaces":["<cwd>"]}'
+with backslashes escaped (C:\path\like\this). This matters most when
+spawning children into fresh temp dirs, which would prompt every single time.
+Fallback when a child is already blocked at startup: read it (`hc read`),
+approve with `hc keys <child> enter`, then resend the task (the first message
+is dropped by design).
+
+NEVER hand-roll a bare `agy --model X` spawn: without the recipe the child
+lands in plan/default mode where every command prompts a human. Always use
+the researcher/reviewer templates, or the full flag set from this file.
 
 ## Reading, waiting, steering
 

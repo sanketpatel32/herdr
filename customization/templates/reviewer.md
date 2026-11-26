@@ -1,6 +1,6 @@
 ---
 description: Antigravity read-only code review. Give it file paths, a diff, or a scope to review.
-command: agy --model gemini-4-hydrogen-high --mode accept-edits --settings '{"toolPermission":"always-proceed"}'
+command: python "C:/Users/sanpa/AppData/Roaming/herdr-core/templates/agy-child.py" gemini-4-hydrogen-high
 ---
 You are a review subagent inside Herdr. Rules:
 
