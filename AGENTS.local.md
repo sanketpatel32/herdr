@@ -63,9 +63,9 @@ error. Windows-only, local machine only. Repo copy: `customization/herdr-app/mod
 
 ## agy trust+approval launcher (2026-11-26)
 
-agy children now launch through :
-per-session settings JSON carries both  AND the literal cwd in
- — no trust dialog even in fresh temp folders, no command
+agy children now launch through `%APPDATA%\herdr-core	emplatesgy-child.py`:
+per-session settings JSON carries both `always-proceed` AND the literal cwd in
+`trustedWorkspaces` — no trust dialog even in fresh temp folders, no command
 prompts. Verified live in a brand-new temp folder through the researcher
 template. Plain shell/powershell argv passing mangles the JSON quotes on
 Windows; the Python launcher exists because subprocess quoting is correct.
